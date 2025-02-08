@@ -48,33 +48,33 @@ class Starships(Base):
     uid = Column(Integer, ForeignKey('favorites.id'), primary_key=True)
     category_id = Column(Integer, ForeignKey('favorites.id'), nullable=False)
     name = Column(String(30), nullable=False)
-    model = Column(String(30))
-    starship_class = Column(String(30))
-    cost_in_credits = Column(String(30))
-    crew = Column(String(30))
-    hyperdrive_rating = Column(String(30))
+    model = Column(String(30), nullable=False)
+    starship_class = Column(String(30), nullable=False)
+    cost_in_credits = Column(String(30), nullable=False)
+    crew = Column(String(30), nullable=False)
+    hyperdrive_rating = Column(String(30), nullable=False)
 
 class Planets(Base):
     __tablename__ = 'planets'
     uid = Column(Integer, ForeignKey('favorites.id'), primary_key=True)
     category_id = Column(Integer, ForeignKey('favorites.id'), nullable=False)
     name = Column(String(30), nullable=False)
-    diameter = Column(String(15))
-    rotation_period = Column(String(15))
-    orbital_period = Column(String(15))
-    population = Column(String(20))
-    climate = Column(String(15))
-    terrain = Column(String(15))
+    diameter = Column(String(15), nullable=False)
+    rotation_period = Column(String(15), nullable=False)
+    orbital_period = Column(String(15), nullable=False)
+    population = Column(String(20), nullable=False)
+    climate = Column(String(15), nullable=False)
+    terrain = Column(String(15), nullable=False)
 
 class Characters(Base):
     __tablename__ = 'characters'
     uid = Column(Integer, ForeignKey('favorites.id'), primary_key=True)
     category_id = Column(Integer, ForeignKey('favorites.id'), nullable=False)
     name = Column(String(30), nullable=False)
-    birth_year = Column(String(30))
-    gender = Column(String(30))
-    homeworld_id = Column(Integer, ForeignKey('planets.uid'))
-    starships_id = Column(Integer, ForeignKey('starships.uid'))    
+    birth_year = Column(String(30), nullable=False)
+    gender = Column(String(30), nullable=False)
+    homeworld_id = Column(Integer, ForeignKey('planets.uid'), nullable=False)
+    starships_id = Column(Integer, ForeignKey('starships.uid'), nullable=False)    
 
 
     def to_dict(self):
