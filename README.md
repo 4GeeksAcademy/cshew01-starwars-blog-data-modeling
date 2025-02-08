@@ -1,4 +1,4 @@
-<!--hide-->
+pipenv shell<!--hide-->
 # Create the database model for Instagram
 <!--endhide-->
 
